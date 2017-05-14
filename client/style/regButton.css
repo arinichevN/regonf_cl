@@ -1,0 +1,150 @@
+.reg_block{
+    min-width: 180px;
+    min-height: 100px;
+    border: 2px solid #73AD21;
+    margin:5px;
+    padding: 3px 3px 3px 3px;
+    background-color: beige;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select: none;
+}
+.reg_interactive{
+    border-width: 2px;
+}
+.reg_interactive:hover{
+    outline:4px solid green;
+    cursor: default;
+}
+.reg_selected{
+    background-color: lightblue;
+    border-color: blue;
+}
+.reg_active{
+    font-weight: bold;
+    color:green;
+}
+.reg_heater{
+    color:red;
+}
+.reg_cooler{
+    color:blue;
+}
+.reg_cont_info{
+    float:left;
+    height: 50px;
+}
+.reg_l_cont{
+    float:left;
+}
+.reg_r_cont{
+    float:left;
+}
+.reg_val_cont{
+    width: 100%;
+    clear: left;
+}
+.reg_state_cont{
+    float:left;
+    height: 20px;
+}
+.reg_time_cont{
+    float:left;
+    height: 20px;
+}
+.reg_state1_cont{
+    float:left;
+    height: 20px;
+    clear:left;
+}
+.reg_em_ico{
+    font-size: 0.8em;
+    margin:3px;
+}
+.reg_value{
+    font-size: 2.5em;
+    font-weight: bold;
+}
+.reg_mu{
+    float:left;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+.reg_descr{
+    width: 100%;
+    font-size: 0.8em;
+    clear: left;
+}
+.reg_state{
+    float:left;
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+.reg_time_rest{
+    float:left;
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+.reg_state_img{
+    float:left;
+    width:20px;
+    height: 20px;
+    margin-left: 10px;
+}
+.reg_goalDelta{
+    float:left;
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+.reg_d{
+    float:left;
+    /*height: 20px;*/
+    /*font-size: 15px;*/
+    margin:0px 3px 0px 3px;
+}
+.reg_img{
+    float:left;
+    width: 50px;
+}
+.reg_dis{
+    opacity: 0.2;
+    color:black;
+}
+.reg_higher{
+    color:red;
+}
+.reg_good{
+    color: green;
+}
+.reg_lower{
+    color: blue;
+}
+.reg_updated_init .reg_init{
+    background-color: yellow;
+    opacity: 1;
+}
+
+.reg_updated_reg_runtime .reg_reg_runtime{
+    background-color: yellow;
+    opacity: 1;
+}
+
+.reg_updated_reg_init .reg_reg_init{
+    background-color: yellow;
+    opacity: 1;
+}
+
+.reg_updated{
+    border-color: greenyellow;
+    background-color: yellow;
+    opacity: 1;
+}
+.reg_group{
+    float:left;
+    width:100%;
+    padding-top:5px;
+    padding-bottom: 5px;
+    border-bottom: 3px dashed burlywood;
+}

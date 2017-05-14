@@ -1,0 +1,68 @@
+.captcha {
+    z-index: 99; }
+.captcha img {
+    width: 200px;
+    height: 150px;
+    margin: 1px;
+    background-color: green; }
+.captcha .images {
+    width: 230px;
+    height: 300px;
+    overflow-y: scroll;
+    background-color: white; }
+.captcha .images .img {
+    border: 1px solid grey;
+    margin: 3px;
+    background-color: beige; }
+.captcha .images .img select {
+    width: 100%; }
+.captcha .body {
+    width: 300px; }
+.captcha img.mark {
+    width: 180px;
+    height: 130px;
+    padding: 10px; }
+.captcha img.unmark {
+    width: 200px;
+    height: 150px;
+    padding: 0px; }
+.captcha .close {
+    float: right; }
+
+.addComment {
+    z-index: 98; }
+.addComment .path span {
+    font-size: small; }
+
+.mobile {
+    max-width: 350px;
+    background-color: bisque;
+    position: fixed;
+    padding: 0px;
+    margin-bottom: 10px;
+    border: 1px solid grey; }
+.mobile header {
+    background-color: #eeeeee;
+    height: 30px;
+    text-align: center;
+    text-transform: capitalize;
+    color: grey;
+    font-size: large;
+    padding-left: 5px; }
+.mobile header .close {
+    float: right;
+    width: 25px;
+    height: 25px;
+    padding: 0px 0px 0px 0px; }
+.mobile .body {
+    margin: 10px; }
+.mobile .body .path {
+    text-transform: capitalize; }
+.mobile .body textarea {
+    width: 100%; }
+.mobile footer {
+    background-color: transparent;
+    padding: 5px 5px 5px 5px;
+    text-align: left; }
+.mobile footer button {
+    float: right; }

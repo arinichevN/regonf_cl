@@ -1,0 +1,16 @@
+.gr_block{
+    min-width: 100px;
+    float:left;
+    border: 2px dashed lightskyblue;
+    margin:10px;
+    padding: 5px 5px 5px 5px; 
+}
+.gr_content{
+
+}
+.gr_descr{
+    font-size: 1.2em;
+    color: crimson;
+    font-weight: bold;
+    text-align: center;
+}

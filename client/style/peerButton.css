@@ -1,0 +1,23 @@
+.peer_block{
+    float:left;
+    border-radius: 10px;
+    border: 2px solid #73AD21;
+     background-color: aliceblue;
+    margin:10px;
+    padding: 10px 10px 10px 10px; 
+
+}
+.peer_work{
+    float:left;
+    width: 20px;
+    height: 20px;
+}
+.peer_descr{
+     float:left;
+     margin-right: 10px;
+}
+.peer_updated{
+    border-color: greenyellow;
+    background-color: yellow;
+    opacity: 1;
+}

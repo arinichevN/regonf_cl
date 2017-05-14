@@ -1,0 +1,57 @@
+.cn_button{
+    float:left;
+    min-width: 250px;
+    min-height: 80px;
+    margin:5px;
+}
+.cn_button2{
+    float:left;
+    min-width:250px;
+    min-height: 80px;
+    margin: 10px;
+}
+legend{
+    font-size: x-large;
+}
+.cn_fs{
+   margin-bottom: 20px;
+   padding-top: 10px;
+}
+.cn_block{
+    height: 100px;
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+    background-color: lightgrey;
+    font-size: 60px;
+}
+.cn_fs_sub{
+   float:left;
+   margin-right: 5px;
+}
+.cn_b1{
+    float:left;
+    margin: 5px;
+}
+.cn_b2{
+    float:left;
+    margin: 5px;
+}
+
+.cn_cont{
+    float:left;
+    margin:10px 0px 10px 0px;
+    padding: 5px 5px 5px 5px; 
+    cursor:  default;
+}
+.cn_cont1{
+    float:left;
+    width:100%;
+    margin:10px 0px 0px 0px;
+    padding-bottom: 10px;
+}
+.cn_blockb{
+ width: 100%;   
+}
+.cn_pcont{
+        background-color: lightgray;
+}

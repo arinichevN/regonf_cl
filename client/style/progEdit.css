@@ -1,0 +1,67 @@
+.pre_header{
+    font-size: 2em;
+    font-weight: bold;
+    color: coral;
+}
+.pre_toggle{
+    color: grey;
+}
+.pre_interactive{
+    color:green;
+}
+.pre_active{
+    color:brown;
+}
+.pre_hbtn{
+    width:100%;
+    height: 80%;
+    font-size: 3em;
+    font-weight: bold;
+    font-kerning:  none;
+    color:brown;
+}
+.pre_btnH{
+    width: 100%;
+    height: 20%;
+    font-size: 1.5em;
+}
+.pre_icell{
+    width:98%;
+    height: 98%;
+    margin:1px;
+    
+}
+.pre_cell1{
+    float:left;
+    width:50%;
+    height: 18%;
+}
+.pre_cell2{
+    float:left;
+    width:50%;
+    height: 18%;
+}
+
+.pre_cell3{
+    float:left;
+    width:50%;
+    height: 25%;
+}
+
+.pre_cell4{
+    float:left;
+    width:50%;
+    height: 20%;
+}
+
+.pre_row4{
+    float:left;
+    width:100%;
+    height: 20%;
+}
+.pre_em_mode{
+    float:left;
+    width:98%;
+    height: 98%;
+    margin: 1px;
+}
