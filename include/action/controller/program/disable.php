@@ -1,6 +1,6 @@
 <?php
 
-namespace controller\reg;
+namespace controller\program;
 
 class disable {
 
@@ -10,7 +10,7 @@ class disable {
 
     public static function execute($p) {
         \sock\init($p['address'], $p['port']);
-        \acp\sendPackI1(ACP_CMD_REGONF_PROG_DISABLE, $p['item']);
+        \acp\requestSendI1List(ACP_CMD_PROG_DISABLE, $p['item']);
         \sock\suspend();
     }
 

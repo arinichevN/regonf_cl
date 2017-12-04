@@ -1,8 +1,8 @@
 <?php
 
-namespace controller\reg;
+namespace controller\program;
 
-class reset {
+class get_data_init {
 
     public static function getUser() {
         return ['stranger' => '*'];
@@ -10,8 +10,10 @@ class reset {
 
     public static function execute($p) {
         \sock\init($p['address'], $p['port']);
-        \acp\sendPackI1(ACP_CMD_RESET, $p['item']);
+        $id=\acp\requestSendI1List(ACP_CMD_PROG_GET_DATA_INIT, $p['item']);
+        $data = \acp\getRegonfDataInit($id);
         \sock\suspend();
+        return $data;
     }
 
 }

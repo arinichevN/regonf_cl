@@ -10,7 +10,7 @@ class reset {
 
     public static function execute($p) {
         \sock\init($p['address'], $p['port']);
-        \acp\sendPackI1(ACP_CMD_RESET, $p['item']);
+        \acp\requestSendI1List(ACP_CMD_PROG_RESET, $p['item']);
         \sock\suspend();
     }
 

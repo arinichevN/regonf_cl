@@ -100,7 +100,7 @@ function RegButton(id, slave, kind) {
     };
     this.updateRegRuntime = function (item) {
       //  console.log(item);
-        if (item.sensor.value !== null && item.state === "BUSY") {
+        if (item.sensor.value !== null && item.sensor.state !== null && item.sensor.state === 1 && item.state === "BUSY") {
             this.valueE.innerHTML = item.sensor.value.toFixed(this.FLOAT_PRES);
             this.uf_count = 0;
             clr(this.valueE, 'reg_dis');

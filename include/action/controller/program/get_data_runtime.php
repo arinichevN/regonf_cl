@@ -1,6 +1,6 @@
 <?php
 
-namespace controller\reg;
+namespace controller\program;
 
 class get_data_runtime {
 
@@ -10,8 +10,8 @@ class get_data_runtime {
 
     public static function execute($p) {
         \sock\init($p['address'], $p['port']);
-        \acp\sendPackI1(ACP_CMD_REGONF_PROG_GET_DATA_RUNTIME, $p['item']);
-        $data = \acp\getRegonfDataRuntime();
+        $id=\acp\requestSendI1List(ACP_CMD_PROG_GET_DATA_RUNTIME, $p['item']);
+        $data = \acp\getRegonfDataRuntime($id);
         \sock\suspend();
         return $data;
     }

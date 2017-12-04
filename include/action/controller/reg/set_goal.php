@@ -10,7 +10,7 @@ class set_goal {
 
     public static function execute($p) {
         \sock\init($p['address'], $p['port']);
-        \acp\sendPackI1F1(ACP_CMD_REGONF_PROG_SET_GOAL, $p['item']);
+        \acp\requestSendI1F1List(ACP_CMD_REG_PROG_SET_GOAL, $p['item']);
         \sock\suspend();
     }
 

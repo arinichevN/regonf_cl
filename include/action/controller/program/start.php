@@ -10,7 +10,7 @@ class start {
 
     public static function execute($p) {
         \sock\init($p['address'], $p['port']);
-        \acp\sendPackI1(ACP_CMD_START, $p['item']);
+        \acp\requestSendI1List(ACP_CMD_PROG_START, $p['item']);
         \sock\suspend();
     }
 

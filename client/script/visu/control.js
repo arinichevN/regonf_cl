@@ -44,19 +44,20 @@ function Control() {
                     PROGRAM: {
                         START: 62,
                         STOP: 63,
-                        RESET: 64
+                        RESET: 64,
+                        GET_DATA_RUNTIME: 65,
+                        GET_DATA_INIT: 66,
+                        DISABLE: 67,
+                        ENABLE: 68,
                     },
                     REG: {
-                        GET_DATA_RUNTIME: 34,
-                        GET_DATA_INIT: 35,
+                        
                         SET_GOAL: 36,
                         SET_DELTA_HEATER: 37,
                         SET_DELTA_COOLER: 38,
                         SET_CHANGE_GAP: 39,
                         SET_POWER_HEATER: 40,
                         SET_POWER_COOLER: 41,
-                        PROG_DISABLE: 42,
-                        PROG_ENABLE: 43,
                         SET_VALUE: 44
                     }
                 }
@@ -319,7 +320,7 @@ function Control() {
         if (this.curr_item.reg.peer !== null) {
             this.sendGetRegRuntime(this.curr_item.reg.peer, this.curr_item.prog_id);
         } else {
-            this.abort(this.ACTION.CONTROLLER.REG.GET_DATA_RUNTIME, "no peer");
+            this.abort(this.ACTION.CONTROLLER.PROGRAM.GET_DATA_RUNTIME, "no peer");
         }
     };
     this.updateNextItem = function () {
@@ -512,14 +513,14 @@ function Control() {
             return;
         }
         var act = 'enable';
-        var kind = this.ACTION.CONTROLLER.REG.PROG_ENABLE;
+        var kind = this.ACTION.CONTROLLER.PROGRAM.ENABLE;
         if (!value) {
             act = 'disable';
-            kind = this.ACTION.CONTROLLER.REG.PROG_DISABLE;
+            kind = this.ACTION.CONTROLLER.PROGRAM.DISABLE;
         }
         var data = [
             {
-                action: ['controller', 'reg', act],
+                action: ['controller', 'program', act],
                 param: {item: [item.prog_id], address: item.reg.peer.address, port: item.reg.peer.port}
             }
         ];
@@ -528,20 +529,20 @@ function Control() {
     this.sendGetRegRuntime = function (peer, prog_id) {
         var data = [
             {
-                action: ['controller', 'reg', 'get_data_runtime'],
+                action: ['controller', 'program', 'get_data_runtime'],
                 param: {address: peer.address, port: peer.port, item: [prog_id]}
             }
         ];
-        sendTo(this, data, this.ACTION.CONTROLLER.REG.GET_DATA_RUNTIME, 'json_udp_acp');
+        sendTo(this, data, this.ACTION.CONTROLLER.PROGRAM.GET_DATA_RUNTIME, 'json_udp_acp');
     };
     this.sendGetRegInit = function (peer, prog_id) {
         var data = [
             {
-                action: ['controller', 'reg', 'get_data_init'],
+                action: ['controller', 'program', 'get_data_init'],
                 param: {address: peer.address, port: peer.port, item: [prog_id]}
             }
         ];
-        sendTo(this, data, this.ACTION.CONTROLLER.REG.GET_DATA_INIT, 'json_udp_acp');
+        sendTo(this, data, this.ACTION.CONTROLLER.PROGRAM.GET_DATA_INIT, 'json_udp_acp');
     };
     this.delayUpdateNextItem = function () {
         try {
@@ -650,7 +651,7 @@ function Control() {
         if (this.curr_item.reg.peer !== null) {
             this.sendGetRegInit(this.curr_item.reg.peer, this.curr_item.prog_id);
         } else {
-            this.abort(this.ACTION.CONTROLLER.REG.GET_DATA_INIT, "no peer");
+            this.abort(this.ACTION.CONTROLLER.PROGRAM.GET_DATA_INIT, "no peer");
         }
     };
     this.doAfterRegInit = function () {
@@ -669,7 +670,7 @@ function Control() {
     this.confirm = function (action, d, dt_diff) {
         try {
             switch (action) {
-                case this.ACTION.CONTROLLER.REG.GET_DATA_RUNTIME:
+                case this.ACTION.CONTROLLER.PROGRAM.GET_DATA_RUNTIME:
                     if (typeof d[0] !== 'undefined') {
                         var id = parseInt(d[0].id);
                         if (this.curr_item.prog_id !== id) {
@@ -696,7 +697,7 @@ function Control() {
                     }
                     this.doAfterRegRuntime();
                     break;
-                case this.ACTION.CONTROLLER.REG.GET_DATA_INIT:
+                case this.ACTION.CONTROLLER.PROGRAM.GET_DATA_INIT:
                     if (typeof d[0] !== 'undefined') {
                         var id = parseInt(d[0].id);
                         if (this.curr_item.prog_id !== id) {
@@ -765,8 +766,8 @@ function Control() {
                 case this.ACTION.CONTROLLER.PROGRAM.START:
                 case this.ACTION.CONTROLLER.PROGRAM.STOP:
                 case this.ACTION.CONTROLLER.PROGRAM.RESET:
-                case this.ACTION.CONTROLLER.REG.PROG_DISABLE:
-                case this.ACTION.CONTROLLER.REG.PROG_ENABLE:
+                case this.ACTION.CONTROLLER.PROGRAM.DISABLE:
+                case this.ACTION.CONTROLLER.PROGRAM.ENABLE:
                     cursor_blocker.disable();
                     break;
                 default:
@@ -781,7 +782,7 @@ function Control() {
     this.abort = function (action, m, n) {
         try {
             switch (action) {
-                case this.ACTION.CONTROLLER.REG.GET_DATA_RUNTIME:
+                case this.ACTION.CONTROLLER.PROGRAM.GET_DATA_RUNTIME:
                     this.curr_item.reg.sensor.value = null;
                     this.curr_item.reg.sensor.state = null;
                     this.curr_item.reg.state = null; //INIT REG OFF
@@ -791,7 +792,7 @@ function Control() {
                     this.curr_item.reg.change_tm_rest = null;
                     this.doAfterRegRuntime();
                     break;
-                case this.ACTION.CONTROLLER.REG.GET_DATA_INIT:
+                case this.ACTION.CONTROLLER.PROGRAM.GET_DATA_INIT:
                     this.curr_item.reg.goal = null;
                     this.curr_item.reg.heater.use = null;
                     this.curr_item.reg.heater.delta = null;
@@ -807,10 +808,10 @@ function Control() {
                     this.curr_ppeer.elem.update(null);
                     this.pingNextPeer();
                     break;
-                case this.ACTION.CONTROLLER.REG.PROG_DISABLE:
+                case this.ACTION.CONTROLLER.PROGRAM.DISABLE:
                     logger.err(264);
                     break;
-                case this.ACTION.CONTROLLER.REG.PROG_ENABLE:
+                case this.ACTION.CONTROLLER.PROGRAM.ENABLE:
                     logger.err(263);
                     break;
                 case this.ACTION.CONTROLLER.REG.SET_DELTA_HEATER:
