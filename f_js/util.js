@@ -760,3 +760,12 @@ function getRandomInt(min, max) {
 function logp() {
     console.log("increment:", lgi++);
 }
+function limval(v, min, max) {
+    if (v < min) {
+        return min;
+    }
+    if (v > max) {
+        return max;
+    }
+    return v;
+}

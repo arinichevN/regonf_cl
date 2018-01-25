@@ -8,7 +8,7 @@ function Control() {
         {name: "канал 4", mu: "&deg;C", peer_id: 'reg_1', prog_id: 4, group_id: 4}
     ];
     this.peer = [
-        {id: 'reg_1', address: '127.0.0.1', port: 49171, timeout: 3, name: "регулятор 1"}
+        {id: 'reg_1', address: '127.0.0.1', port: 49196, timeout: 3, name: "регулятор 1"}
       //  {id: 'reg_2', address: '192.168.0.103', port: 49171, timeout: 3, name: "регулятор 2"}
     ];
     this.group = [
@@ -95,7 +95,7 @@ function Control() {
             };
             a(this.container, [this.dataE, this.helpB, this.peerE]);
             for (var i = 0; i < this.peer.length; i++) {
-                var elem = new PeerButton(this.peer[i].name);
+                var elem = new PeerButton(this.peer[i] );
                 this.peer[i].elem = elem;
                 a(this.peerE, elem);
             }

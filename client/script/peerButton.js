@@ -1,6 +1,6 @@
-function PeerButton(descr) {
+function PeerButton(peer) {
     this.container = cd();
-    this.id = descr;
+    this.id = peer.id;
 
     this.descrE = cd();
     this.workE = c("img");
@@ -9,8 +9,8 @@ function PeerButton(descr) {
     s(this.workE, "src", "client/image/work_un.png");
 
     this.workE.innerHTML = '&empty;';
-    this.descrE.innerHTML = descr;
-
+    this.descrE.innerHTML = peer.name;
+this.container.title=peer.address+":"+peer.port;
     this.updateStr = function () {
 
     };
